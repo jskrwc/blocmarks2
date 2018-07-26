@@ -14,4 +14,8 @@
  *= require_self
   */
 @import "bootstrap-sprockets";
-@import "bootstrap"
+@import "bootstrap";
+
+.nav.pull-right {
+  padding-top: 10px;
+}
