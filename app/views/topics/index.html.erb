@@ -11,7 +11,7 @@
           <div class="col-md-8 panel panel-info">
             <% topic.bookmarks.each do |bookmark| %>
               <ul>
-                <li>  <%= link_to bookmark.url, edit_topic_bookmark_path(topic, bookmark) %></li>
+                <li>  <%= link_to bookmark.url, topic_bookmark_path(topic, bookmark) %></li>
               </ul>
             <% end %>
           </div>

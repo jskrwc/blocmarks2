@@ -14,7 +14,7 @@
          <% @topic.bookmarks.each do |bookmark| %>
            <ul>
              <li>
-               <%= bookmark.url %>
+               <%= link_to bookmark.url, topic_bookmark_path(@topic, bookmark) %>
              </li>
            </ul>
          <% end %>

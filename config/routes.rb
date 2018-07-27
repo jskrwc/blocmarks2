@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'bookmarks/show'
+
+  get 'bookmarks/new'
+
+  get 'bookmarks/edit'
+
   # get 'topics/index'
   #
   # get 'topics/show'
