@@ -11,7 +11,12 @@
           <div class="col-md-8 panel panel-info">
             <% topic.bookmarks.each do |bookmark| %>
               <ul>
-                <li>  <%= link_to bookmark.url, topic_bookmark_path(topic, bookmark) %></li>
+                <li> <%= if bookmark.url.include? "http://" or bookmark.url.include? "https://"
+                            link_to bookmark.url, bookmark.url, target: :_blank
+                         else
+                            link_to bookmark.url, "http://" + bookmark.url, target: :blank
+                         end %>
+                </li>
               </ul>
             <% end %>
           </div>
@@ -19,6 +24,7 @@
       </div>
     <% end %>
   </div>
+  <h6>(Click on a topic to edit it, or its underlying bookmarks)</h6>
 </div>
 
 <!-- put at top? -->
