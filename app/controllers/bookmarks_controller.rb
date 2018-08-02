@@ -17,8 +17,8 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    @bookmark = Bookmark.new
-    @bookmark.url = params[:bookmark][:url]
+    @bookmark = Bookmark.new(bookmark_params)
+
     @topic = Topic.find(params[:topic_id])
     @bookmark.topic = @topic
 
@@ -33,8 +33,8 @@ class BookmarksController < ApplicationController
 
   def update
     @bookmark = Bookmark.find(params[:id])
-    @bookmark.url = params[:bookmark][:url]
-    # @bookmark.assign_attributes(bookmark_params)
+    # @bookmark.url = params[:bookmark][:url]
+    @bookmark.assign_attributes(bookmark_params)
 
     if @bookmark.save
       flash[:notice] = "The Bookmark has been updated"
