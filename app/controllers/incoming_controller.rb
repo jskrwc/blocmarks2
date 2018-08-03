@@ -29,7 +29,7 @@ class IncomingController < ApplicationController
 
     # Check if the topic is nil, if so, create and save a new topic
     if @topic.nil?
-      @topic = Topic.new(title: params[:subject])
+      @topic = @user.topics.build(title: params[:subject])
       @topic.save!
     end
 
