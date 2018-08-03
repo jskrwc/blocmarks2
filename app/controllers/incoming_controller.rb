@@ -8,7 +8,7 @@ class IncomingController < ApplicationController
     # Take a look at these in your server logs
     # to get a sense of what you're dealing with.
     puts "Here is sender: #{params[:sender]}"
-    puts "Here is subject: #{params[;subject]}"
+    puts "Here is subject: #{params[:subject]}"
     puts "Here is body-plain: #{params["body-plain"]}"
 
 
