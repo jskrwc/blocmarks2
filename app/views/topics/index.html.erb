@@ -27,7 +27,12 @@
   <h6>(Click on a topic to edit it, or its underlying bookmarks)</h6>
 </div>
 
-<!-- put at top? -->
+
 <div class="col-md-4">
-  <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
+  <% if policy(Bookmark.new).create? %>
+    <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
+  <% else %>
+    <%= link_to "New Topic", new_topic_path, class: 'btn btn-default' %>
+    <h6> (you must be signed in to create a new topic!)</h6>
+  <% end %>
 </div>
