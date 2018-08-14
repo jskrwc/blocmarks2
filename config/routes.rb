@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'likes/index'
+
   # get 'bookmarks/show'
   #
   # get 'bookmarks/new'
@@ -14,7 +16,9 @@ Rails.application.routes.draw do
   # get 'topics/edit'
 
   resources :topics do
-    resources :bookmarks
+    resources :bookmarks, except: [:index] do
+      resources :likes, only: [:index,  :create, :destroy]
+    end
   end
 
   devise_for :users

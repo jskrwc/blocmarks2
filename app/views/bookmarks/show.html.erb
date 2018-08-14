@@ -8,4 +8,7 @@
     <%= link_to "Edit Bookmark", edit_topic_bookmark_path(@bookmark.topic, @bookmark), class: 'btn btn-default' %>
     <h6> (you must be signed in to edit bookmarks!)</h6>
   <% end %>
+
+  <%= render partial: 'likes/like', locals: { bookmark: @bookmark } %>
+
 </div>
