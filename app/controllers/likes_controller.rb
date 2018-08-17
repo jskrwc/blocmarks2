@@ -16,7 +16,7 @@ class LikesController < ApplicationController
       flash.now[:alert] = "There was an error liking this bookmark -- please try again"
     end
 
-    redirect_to @bookmark.topic #redirect to @bookmark ??
+    redirect_back fallback_location: request.referrer
   end
 
   def destroy
@@ -32,7 +32,7 @@ class LikesController < ApplicationController
       flash.now[:alert] = "There was an error unliking this bookmark -- please try again"
     end
 
-    redirect_to @bookmark.topic
+    redirect_back fallback_location: request.referrer
   end
 
 end

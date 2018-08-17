@@ -1,19 +1,4 @@
 Rails.application.routes.draw do
-  get 'likes/index'
-
-  # get 'bookmarks/show'
-  #
-  # get 'bookmarks/new'
-  #
-  # get 'bookmarks/edit'
-
-  # get 'topics/index'
-  #
-  # get 'topics/show'
-  #
-  # get 'topics/new'
-  #
-  # get 'topics/edit'
 
   resources :topics do
     resources :bookmarks, except: [:index] do
@@ -22,6 +7,8 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
+  resources :users, only: [:show]
+
   get 'welcome/index'
 
   get 'welcome/about'

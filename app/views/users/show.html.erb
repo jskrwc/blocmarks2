@@ -1,0 +1,50 @@
+<h1>My Profile</h1>
+<div class="row">
+  <div class="col-md-6">
+    <div class="media">
+
+      <div class="media-heading">
+        <h4>My Bookmarks</h4>
+      </div>
+      <div class="media-body">
+        <div class="col-md-8 panel panel-info">
+          <% @user_bookmarks.each do |bookmark| %>
+            <ul>
+              <li>
+                <%= "#{bookmark.topic.title}" + "-" %>
+                <%= if bookmark.url.include? "http://" or bookmark.url.include? "https://"
+                          link_to bookmark.url, bookmark.url, target: :_blank
+                       else
+                          link_to bookmark.url, "http://" + bookmark.url, target: :blank
+                       end %>
+                <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
+              </li>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="media-heading">
+        <h4>Liked Bookmarks</h4>
+      </div>
+      <div class="media-body">
+        <div class="col-md-8 panel panel-info">
+          <% @liked_bookmarks.each do |bookmark| %>
+            <ul>
+              <li>
+                <%= "#{bookmark.topic.title}" + "-" %>
+                <%= if bookmark.url.include? "http://" or bookmark.url.include? "https://"
+                          link_to bookmark.url, bookmark.url, target: :_blank
+                       else
+                          link_to bookmark.url, "http://" + bookmark.url, target: :blank
+                       end %>
+                <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
+              </li>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
