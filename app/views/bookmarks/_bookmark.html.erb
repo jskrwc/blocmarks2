@@ -1,0 +1,11 @@
+<ul>
+  <li>
+    <%= "#{bookmark.topic.title}" + "-" %>
+    <%= if bookmark.url.include? "http://" or bookmark.url.include? "https://"
+              link_to bookmark.url, bookmark.url, target: :_blank
+           else
+              link_to bookmark.url, "http://" + bookmark.url, target: :blank
+           end %>
+    <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
+  </li>
+</ul>

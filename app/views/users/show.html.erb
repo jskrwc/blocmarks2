@@ -8,19 +8,8 @@
       </div>
       <div class="media-body">
         <div class="col-md-8 panel panel-info">
-          <% @user_bookmarks.each do |bookmark| %>
-            <ul>
-              <li>
-                <%= "#{bookmark.topic.title}" + "-" %>
-                <%= if bookmark.url.include? "http://" or bookmark.url.include? "https://"
-                          link_to bookmark.url, bookmark.url, target: :_blank
-                       else
-                          link_to bookmark.url, "http://" + bookmark.url, target: :blank
-                       end %>
-                <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
-              </li>
-            </ul>
-          <% end %>
+<!--NOTE using partial*** -->
+          <%= render @user_bookmarks %>
         </div>
       </div>
 
@@ -29,6 +18,7 @@
       </div>
       <div class="media-body">
         <div class="col-md-8 panel panel-info">
+<!--TODO not using partial -->
           <% @liked_bookmarks.each do |bookmark| %>
             <ul>
               <li>
