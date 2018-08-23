@@ -16,7 +16,7 @@ class LikesController < ApplicationController
       flash.now[:alert] = "There was an error liking this bookmark -- please try again"
     end
 
-    raise request.referrer.inspect
+    # raise request.referrer.inspect
     redirect_back fallback_location: request.referrer
   end
 
